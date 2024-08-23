@@ -1,0 +1,46 @@
+/* Custom Styles for HomePage */
+
+/* Adjust the font or colors if needed */
+.homepage h1,
+.homepage h2,
+.homepage h3 {
+  font-family: 'Arial, sans-serif';
+  color: #333;
+}
+
+/* Section-specific styles */
+.welcome {
+  background-image: url('/assets/welcome.png');
+  background-size: cover;
+  background-position: center;
+  color: white;
+}
+
+.category .category-item {
+  transition: transform 0.3s ease;
+}
+
+.category .category-item:hover {
+  transform: scale(1.05);
+}
+
+/* Button Styles */
+.homepage a {
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.homepage a:hover {
+  background-color: #ff007f;
+  transform: scale(1.1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .welcome h1 {
+    font-size: 3rem;
+  }
+
+  .category .category-item {
+    padding: 20px;
+  }
+}
