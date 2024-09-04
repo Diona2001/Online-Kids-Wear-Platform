@@ -6,7 +6,7 @@ import logoImg from '../assets/logo.svg'; // Ensure the path is correct
 
 const Header = () => {
   return (
-    <header className='h-20 shadow-lg bg-white fixed top-0 left-0 w-full z-50'>
+    <header className='h-20 shadow-lg bg-blue-600 fixed top-0 left-0 w-full z-50'> {/* Changed bg color */}
       <div className='h-full container mx-auto flex items-center px-6 justify-between'>
         
         {/* Left side: Logo and Site Name */}
@@ -19,28 +19,28 @@ const Header = () => {
             />
           </Link>
           <Link to={"/"}>
-            <span className='text-black text-2xl font-bold'>KiddoChic</span>
+            <span className='text-white text-2xl font-bold'>KiddoChic</span> {/* Text color changed */}
           </Link>
         </div>
 
         {/* Center: Navigation Links */}
         <nav className='flex items-center gap-6'>
-          <Link to="/" className='text-black text-lg hover:text-gray-500 transition duration-200'>
+          <Link to="/" className='text-white text-lg hover:text-gray-300 transition duration-200'>
             Home
           </Link>
-          <Link to="/products" className='text-black text-lg hover:text-gray-500 transition duration-200'>
+          <Link to="/products" className='text-white text-lg hover:text-gray-300 transition duration-200'>
             Products
           </Link>
-          <Link to="/brands" className='text-black text-lg hover:text-gray-500 transition duration-200'>
+          <Link to="/brands" className='text-white text-lg hover:text-gray-300 transition duration-200'>
             Our Brands
           </Link>
-          <Link to="/category" className='text-black text-lg hover:text-gray-500 transition duration-200'>
+          <Link to="/category" className='text-white text-lg hover:text-gray-300 transition duration-200'>
             Category
           </Link>
-          <Link to="/about" className='text-black text-lg hover:text-gray-500 transition duration-200'>
+          <Link to="/about" className='text-white text-lg hover:text-gray-300 transition duration-200'>
             About Us
           </Link>
-          <Link to="/contact" className='text-black text-lg hover:text-gray-500 transition duration-200'>
+          <Link to="/contact" className='text-white text-lg hover:text-gray-300 transition duration-200'>
             Contact Us
           </Link>
         </nav>
@@ -55,7 +55,7 @@ const Header = () => {
             />
           </Link>
 
-          <Link to="/cart" className='text-2xl relative'>
+          <Link to="/cart" className='text-2xl relative text-white'> {/* Cart icon color */}
             <FaShoppingCart />
             <div className='text-white w-5 h-5 rounded-full p-1 flex items-center justify-center bg-red-500 absolute -top-2 -right-3'>
               <p className='text-sm'>0</p>

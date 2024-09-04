@@ -1,46 +1,78 @@
-/* Custom Styles for HomePage */
+/* Home.css */
 
-/* Adjust the font or colors if needed */
-.homepage h1,
-.homepage h2,
-.homepage h3 {
-  font-family: 'Arial, sans-serif';
-  color: #333;
+.homepage {
+  font-family: 'Arial', sans-serif;
 }
 
-/* Section-specific styles */
-.welcome {
-  background-image: url('/assets/welcome.png');
-  background-size: cover;
-  background-position: center;
+.hero-section {
+  position: relative;
+  height: 400px; /* Adjust height as needed */
+  overflow: hidden;
+  background-image: url('../assets/welcome.png'); /* Apply background image */
+  background-size: cover; /* Ensure the image covers the entire container */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Ensure the image does not repeat */
+}
+
+.slider-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   color: white;
+  text-align: center;
+  z-index: 1; /* Ensure content is above the background image */
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.5); /* Optional: Dark background for better text readability */
+  border-radius: 10px; /* Optional: Rounded corners */
 }
 
-.category .category-item {
-  transition: transform 0.3s ease;
+.slider-heading {
+  font-size: 4rem; /* Adjust size as needed */
+  font-weight: bold;
+  margin-bottom: 1rem;
 }
 
-.category .category-item:hover {
-  transform: scale(1.05);
+.slider-subtitle {
+  font-size: 1.5rem; /* Adjust size as needed */
 }
 
-/* Button Styles */
-.homepage a {
-  transition: background-color 0.3s ease, transform 0.3s ease;
+.category-section {
+  background-color: #f4f4f4;
 }
 
-.homepage a:hover {
-  background-color: #ff007f;
-  transform: scale(1.1);
+.categories-container {
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .welcome h1 {
-    font-size: 3rem;
-  }
+.category-item {
+  transition: transform 0.3s ease-in-out;
+}
 
-  .category .category-item {
-    padding: 20px;
-  }
+.category-item:hover {
+  transform: translateY(-10px);
+}
+
+.category-img {
+  width: 100%;
+  height: auto;
+  max-height: 200px;
+  object-fit: cover;
+}
+
+.category-button {
+  display: inline-block;
+  padding: 10px 20px;
+  margin-top: 10px;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.category-button:hover {
+  background-color: #0056b3;
 }

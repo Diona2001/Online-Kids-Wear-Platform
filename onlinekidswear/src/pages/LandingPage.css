@@ -1,0 +1,73 @@
+/* LandingPage.css */
+
+.landing-page {
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+.header {
+  background-color: #f8f9fa;
+  padding: 1rem;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.nav {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #007bff;
+  font-weight: bold;
+}
+
+.nav-link:hover {
+  text-decoration: underline;
+}
+
+.main {
+  padding: 2rem;
+}
+
+.hero {
+  margin-bottom: 2rem;
+}
+
+.age-groups {
+  margin-bottom: 2rem;
+}
+
+.age-group {
+  margin: 1rem 0;
+}
+
+.products {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.product {
+  border: 1px solid #eaeaea;
+  border-radius: 8px;
+  padding: 1rem;
+  text-align: center;
+  width: 150px;
+}
+
+.product img {
+  max-width: 100%;
+  border-radius: 4px;
+}
+
+.footer {
+  background-color: #f8f9fa;
+  padding: 1rem;
+  border-top: 1px solid #eaeaea;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}

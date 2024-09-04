@@ -1,5 +1,7 @@
+// SignUp.js
 import React, { useState } from 'react';
-import './SignUp.css'; // Import CSS file for styling
+import { useNavigate } from 'react-router-dom';
+import './SignUp.css';
 
 const SignUp = () => {
   const [formData, setFormData] = useState({
@@ -7,11 +9,12 @@ const SignUp = () => {
     lastName: '',
     email: '',
     password: '',
+    confirmPassword: '',
     phoneNumber: '',
-    dateOfBirth: '',
   });
 
   const [errors, setErrors] = useState({});
+  const navigate = useNavigate();
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -44,37 +47,56 @@ const SignUp = () => {
       newErrors.password = 'Password must be at least 6 characters long';
     }
 
-    if (!formData.phoneNumber.trim()) {
-      newErrors.phoneNumber = 'Phone Number is required';
-    } else if (!/^\d{10}$/.test(formData.phoneNumber)) {
-      newErrors.phoneNumber = 'Phone Number must be 10 digits';
+    if (formData.password !== formData.confirmPassword) {
+      newErrors.confirmPassword = 'Passwords do not match';
     }
 
-    if (!formData.dateOfBirth.trim()) {
-      newErrors.dateOfBirth = 'Date of Birth is required';
+    if (!formData.phoneNumber.trim()) {
+      newErrors.phoneNumber = 'Phone Number is required';
+    } else if (!/^[56789]\d{9}$/.test(formData.phoneNumber)) {
+      newErrors.phoneNumber = 'Phone Number must start with 5, 6, 7, 8, or 9 and be 10 digits long';
     }
 
     return newErrors;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const validationErrors = validate();
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
     } else {
-      // Submit form
-      console.log('Form data:', formData);
-      // Clear form and errors
-      setFormData({
-        firstName: '',
-        lastName: '',
-        email: '',
-        password: '',
-        phoneNumber: '',
-        dateOfBirth: '',
-      });
-      setErrors({});
+      try {
+        const response = await fetch('http://localhost:3000/api/users/signup', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formData),
+        });
+
+        const result = await response.json();
+        if (response.ok) {
+          console.log('Form data submitted successfully:', result);
+          setFormData({
+            firstName: '',
+            lastName: '',
+            email: '',
+            password: '',
+            confirmPassword: '',
+            phoneNumber: '',
+          });
+          setErrors({});
+          navigate('/login'); // Redirect to the login page on successful sign-up
+        } else {
+          console.error('Error:', result);
+          setErrors(result.errors || {});
+          alert(result.message || 'Sign up failed. Please try again.');
+        }
+      } catch (error) {
+        console.error('Error submitting form:', error);
+        alert('An error occurred. Please try again.');
+      }
     }
   };
 
@@ -128,6 +150,17 @@ const SignUp = () => {
             {errors.password && <span className="error">{errors.password}</span>}
           </div>
           <div className="input-container">
+            <label>Confirm Password</label>
+            <input
+              type="password"
+              name="confirmPassword"
+              placeholder="Confirm your password"
+              value={formData.confirmPassword}
+              onChange={handleInputChange}
+            />
+            {errors.confirmPassword && <span className="error">{errors.confirmPassword}</span>}
+          </div>
+          <div className="input-container">
             <label>Phone Number</label>
             <input
               type="tel"
@@ -137,16 +170,6 @@ const SignUp = () => {
               onChange={handleInputChange}
             />
             {errors.phoneNumber && <span className="error">{errors.phoneNumber}</span>}
-          </div>
-          <div className="input-container">
-            <label>Date of Birth</label>
-            <input
-              type="date"
-              name="dateOfBirth"
-              value={formData.dateOfBirth}
-              onChange={handleInputChange}
-            />
-            {errors.dateOfBirth && <span className="error">{errors.dateOfBirth}</span>}
           </div>
           <button type="submit" className="signup-button">Sign Up</button>
           <button type="button" className="signup-google">
@@ -164,3 +187,5 @@ const SignUp = () => {
 };
 
 export default SignUp;
+
+

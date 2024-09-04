@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import './Login.css';
 import loginImage from '../assets/kids.png';
 
@@ -7,12 +7,12 @@ const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errors, setErrors] = useState({ email: '', password: '' });
+  const navigate = useNavigate();
 
   const validateForm = () => {
     let valid = true;
     let errors = {};
 
-    // Email validation
     if (!email) {
       errors.email = 'Email is required';
       valid = false;
@@ -21,7 +21,6 @@ const Login = () => {
       valid = false;
     }
 
-    // Password validation
     if (!password) {
       errors.password = 'Password is required';
       valid = false;
@@ -34,29 +33,39 @@ const Login = () => {
     return valid;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (validateForm()) {
-      // If validation passes, proceed with form submission (e.g., API call)
-      console.log('Form is valid. Submitting...');
-    } else {
-      console.log('Form has errors.');
+      try {
+        const response = await fetch('/api/login', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ email, password }),
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+          navigate('/'); // Redirect on successful login
+        } else {
+          console.error('Login failed:', data); // Log the error for debugging
+          alert(data.message || 'Login failed. Please check your credentials.');
+        }
+      } catch (error) {
+        console.error('Error during login:', error);
+        alert('An error occurred. Please try again.');
+      }
     }
   };
 
   return (
     <div className="login-container">
-      {/* Image container */}
       <div className="image-container">
-        <img
-          src={loginImage}
-          alt="Login Background"
-          className="login-image"
-        />
+        <img src={loginImage} alt="Login Background" className="login-image" />
       </div>
-      
-      {/* Form container */}
       <div className="form-container">
         <h2>LOGIN</h2>
         <form onSubmit={handleSubmit}>
@@ -97,6 +106,6 @@ const Login = () => {
       </div>
     </div>
   );
-}
+};
 
 export default Login;
