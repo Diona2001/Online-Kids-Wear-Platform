@@ -1,67 +1,197 @@
-.landing-page {
-  font-family: Arial, sans-serif;
+/* Reset some default styles */
+body, html, h1, h2, h3, p, ul, li {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
+/* Basic styling */
+html, body {
+  height: 165%;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #fafafa;
+  color: #333;
+}
+
+/* Header styling */
 .header {
-  background-color: #f8f9fa;
-  padding: 10px 20px;
+  height: 160%;
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
 }
 
 .nav {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  gap: 20px;
 }
 
 .nav-link {
+  color: #fff;
   text-decoration: none;
-  color: #333;
+  font-size: 1.2rem;
   font-weight: bold;
+  transition: color 0.3s;
 }
 
 .nav-link:hover {
   color: #007bff;
+  text-decoration: underline;
 }
 
-.hero {
-  text-align: center;
-  padding: 50px;
-  background-color: #e9ecef;
-}
-
-.hero h1 {
-  font-size: 3rem;
-  margin-bottom: 20px;
-}
-
-.hero p {
-  font-size: 1.5rem;
-}
-
-.hero-image {
-  margin-top: 20px;
-  width: 100%;
-  max-width: 600px;
-}
-
-.age-groups {
-  padding: 20px;
-}
-
-.age-group {
-  margin-bottom: 20px;
-}
-
-.products {
+/* Main content styling */
+.main {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   padding: 20px;
+  gap: 20px;
 }
 
-.product {
+/* Wardrobe styling */
+.wardrobe {
+  flex: 1;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Girls' Wardrobe Layout */
+.girls-wardrobe {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.girls-wardrobe .product {
+  flex: 1 1 180px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  transition: transform 0.3s, box-shadow 0.3s;
   text-align: center;
 }
 
-.product img {
-  width: 150px;
-  height: 150px;
+.girls-wardrobe .product img {
+  width: 100%;
+  height: auto;
+  max-width: 150px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.girls-wardrobe .product h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.girls-wardrobe .product .view-details {
+  display: inline-block;
+  padding: 10px 15px;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  text-align: center;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.girls-wardrobe .product .view-details:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+.girls-wardrobe .product:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Boys' Wardrobe Layout (for reference) */
+.boys-wardrobe {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.boys-wardrobe .product {
+  flex: 1 1 180px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  transition: transform 0.3s, box-shadow 0.3s;
+  text-align: center;
+}
+
+.boys-wardrobe .product img {
+  width: 100%;
+  height: auto;
+  max-width: 150px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.boys-wardrobe .product h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.boys-wardrobe .product .view-details {
+  display: inline-block;
+  padding: 10px 15px;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  text-align: center;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.boys-wardrobe .product .view-details:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+.boys-wardrobe .product:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .main {
+      flex-direction: column;
+  }
+
+  .nav {
+      flex-direction: column;
+  }
+
+  .nav-link {
+      margin-bottom: 10px;
+  }
 }

@@ -1,18 +1,33 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './LandingPage.css'; // Import the CSS file
-import KidsImg from '../assets/kids.png';
+
+// Girls' wardrobe images
 import DressesImg from '../assets/dresses.png';
 import ShoesImg from '../assets/shoes.png';
 import AccessorsImg from '../assets/accessors.png';
 import Bottom1Img from '../assets/bottom1.png';
-import Dresses1Img from '../assets/dresses1.png';
 import EthnicImg from '../assets/ethnic.png';
-import NightsuitsImg from '../assets/nightsuits.png';
-import PartywearImg from '../assets/partywear.png';
-import SetsImg from '../assets/sets.png';
-import ShortSkirtsImg from '../assets/short&skirts.png';
-import TeesImg from '../assets/tees.png';
+import NightsuitsGirlImg from '../assets/nightsuits.png';
+import PartywearGirlImg from '../assets/partywear.png';
+import SetsGirlImg from '../assets/sets.png';
+import ShortsGirlImg from '../assets/shorts.png';
+
+// Boys' wardrobe images
+import SetsBoyImg from '../assets/sets_boy.png';
+import PartywearBoyImg from '../assets/partywear_boy.png';
+import ShoesBoyImg from '../assets/shoes_boy.png';
+import ShortsTeesBoyImg from '../assets/shorts_tees_boy.png';
+import BottomsBoyImg from '../assets/bottoms_boy.png';
+import EthnicBoyImg from '../assets/ethnic_boy.png';
+import NightsuitsBoyImg from '../assets/nightsuits_boy.png';
+import ShirtsBoyImg from '../assets/shirts_boy.png';
+import AccessoriesBoyImg from '../assets/accessories_boy.png';
+// occasion wear
+import BrithdayImg from '../assets/brithday.png';
+import TravelImg from '../assets/travel.png';
+import TraditionalImg from '../assets/traditional.png';
+import WeekendImg from '../assets/bweekend.png';
 
 const LandingPage = () => {
   return (
@@ -22,110 +37,113 @@ const LandingPage = () => {
           <Link to="/boys" className="nav-link">Boys</Link>
           <Link to="/girls" className="nav-link">Girls</Link>
           <Link to="/become-a-supplier" className="nav-link">Become a Supplier</Link>
-          <Link to="/profile" className="nav-link">Profile</Link>
-          <Link to="/cart" className="nav-link">Cart</Link>
         </nav>
       </header>
 
       <main className="main">
-        <section className="age-groups">
-          <h2>Shop by Age Group</h2>
-          <div className="age-group">
-            <h3>Infants</h3>
-          </div>
-          <div className="age-group">
-            <h3>Toddlers</h3>
-            
-          </div>
-          <div className="age-group">
-            <h3>Kids</h3>
-            
-          </div>
-          <div className="age-group">
-            <h3>Teens</h3>
-            
-          </div>
-        </section>
-
-        <section className="products">
-          <h2>Featured Products</h2>
-          <div className="product">
-            <h3>New Style</h3>
-            <p>Modern and stylish outfits for kids.</p>
-            <Link to="/product/newstyle" className="view-details">View Details</Link>
-          </div>
-          <div className="product">
+        {/* Girls' Wardrobe on the left side */}
+        <section className="wardrobe girls-wardrobe">
+          <h2>Girls' Wardrobe</h2>
+          <Link to="/product/dresses" className="product">
             <img src={DressesImg} alt="Dresses" />
             <h3>Dresses</h3>
-            <p>Elegant dresses for special occasions.</p>
-            <Link to="/product/dresses" className="view-details">View Details</Link>
-          </div>
-          <div className="product">
+          </Link>
+          <Link to="/product/shoes" className="product">
             <img src={ShoesImg} alt="Shoes" />
             <h3>Shoes</h3>
-            <p>Comfortable and stylish footwear for kids.</p>
-            <Link to="/product/shoes" className="view-details">View Details</Link>
-          </div>
-          <div className="product">
+          </Link>
+          <Link to="/product/accessories" className="product">
             <img src={AccessorsImg} alt="Accessories" />
             <h3>Accessories</h3>
-            <p>Complete your outfit with fun accessories.</p>
-            <Link to="/product/accessories" className="view-details">View Details</Link>
-          </div>
-          <div className="product">
+          </Link>
+          <Link to="/product/bottoms" className="product">
             <img src={Bottom1Img} alt="Bottoms" />
             <h3>Bottoms</h3>
-            <p>Stylish bottoms for every occasion.</p>
-            <Link to="/product/bottoms" className="view-details">View Details</Link>
-          </div>
-          <div className="product">
-            <img src={Dresses1Img} alt="Dresses 1" />
-            <h3>Casual Dresses</h3>
-            <p>Perfect dresses for everyday wear.</p>
-            <Link to="/product/dresses1" className="view-details">View Details</Link>
-          </div>
-          <div className="product">
-            <img src={EthnicImg} alt="Ethnic" />
+          </Link>
+          <Link to="/product/ethnic" className="product">
+            <img src={EthnicImg} alt="Ethnic Wear" />
             <h3>Ethnic Wear</h3>
-            <p>Traditional ethnic outfits for special occasions.</p>
-            <Link to="/product/ethnic" className="view-details">View Details</Link>
-          </div>
-          <div className="product">
-            <img src={NightsuitsImg} alt="Nightsuits" />
+          </Link>
+          <Link to="/product/nightsuit" className="product">
+            <img src={NightsuitsGirlImg} alt="Night Suits" />
             <h3>Night Suits</h3>
-            <p>Comfortable nightwear for a good night's sleep.</p>
-            <Link to="/product/nightsuits" className="view-details">View Details</Link>
-          </div>
-          <div className="product">
-            <img src={PartywearImg} alt="Partywear" />
-            <h3>Party Wear</h3>
-            <p>Outfits for every celebration.</p>
-            <Link to="/product/partywear" className="view-details">View Details</Link>
-          </div>
-          <div className="product">
-            <img src={SetsImg} alt="Sets" />
+          </Link>
+          <Link to="/product/partywear" className="product">
+            <img src={PartywearGirlImg} alt="Partywear" />
+            <h3>Partywear</h3>
+          </Link>
+          <Link to="/product/sets" className="product">
+            <img src={SetsGirlImg} alt="Full-Length Sets" />
+            <h3>Full-Length Sets</h3>
+          </Link>
+          <Link to="/product/shorts" className="product">
+            <img src={ShortsGirlImg} alt="Shorts & Skirt Sets" />
+            <h3>Shorts & Skirt Sets</h3>
+          </Link>
+        </section>
+
+        {/* Occasions Wear in the center */}
+        <section className="wardrobe occasions-wear">
+          <h2>Occasions Wear</h2>
+          <Link to="/product/birthday" className="product">
+            <img src={BrithdayImg} alt="Birthday Wear" />
+            <h3>Birthday Wear</h3>
+          </Link>
+          <Link to="/product/travel" className="product">
+            <img src={TravelImg} alt="Travel Wear" />
+            <h3>Travel Wear</h3>
+          </Link>
+          <Link to="/product/traditional" className="product">
+            <img src={TraditionalImg} alt="Traditional Wear" />
+            <h3>Traditional Wear</h3>
+          </Link>
+          <Link to="/product/weekend" className="product">
+            <img src={WeekendImg} alt="Weekend Wear" />
+            <h3>Weekend Wear</h3>
+          </Link>
+        </section>
+
+        {/* Boys' Wardrobe on the right side */}
+        <section className="wardrobe boys-wardrobe">
+          <h2>Boys' Wardrobe</h2>
+          <Link to="/product/sets_boy" className="product">
+            <img src={SetsBoyImg} alt="Outfit Sets" />
             <h3>Outfit Sets</h3>
-            <p>Perfectly matched sets for every day.</p>
-            <Link to="/product/sets" className="view-details">View Details</Link>
-          </div>
-          <div className="product">
-            <img src={ShortSkirtsImg} alt="Shorts & Skirts" />
-            <h3>Shorts & Skirts</h3>
-            <p>Trendy bottoms for summer days.</p>
-            <Link to="/product/short-skirts" className="view-details">View Details</Link>
-          </div>
-          <div className="product">
-            <img src={TeesImg} alt="Tees" />
-            <h3>Tees</h3>
-            <p>Casual tees for everyday wear.</p>
-            <Link to="/product/tees" className="view-details">View Details</Link>
-          </div>
+          </Link>
+          <Link to="/product/partywear_boy" className="product">
+            <img src={PartywearBoyImg} alt="Partywear" />
+            <h3>Party Wear</h3>
+          </Link>
+          <Link to="/product/shoes_boy" className="product">
+            <img src={ShoesBoyImg} alt="Shoes" />
+            <h3>Shoes</h3>
+          </Link>
+          <Link to="/product/shorts_tees_boy" className="product">
+            <img src={ShortsTeesBoyImg} alt="Shorts & Tees" />
+            <h3>Shorts & Tees</h3>
+          </Link>
+          <Link to="/product/bottoms_boy" className="product">
+            <img src={BottomsBoyImg} alt="Bottoms" />
+            <h3>Bottoms</h3>
+          </Link>
+          <Link to="/product/ethnic_boy" className="product">
+            <img src={EthnicBoyImg} alt="Ethnic Wear" />
+            <h3>Ethnic Wear</h3>
+          </Link>
+          <Link to="/product/nightsuits_boy" className="product">
+            <img src={NightsuitsBoyImg} alt="Night Suits" />
+            <h3>Night Suits</h3>
+          </Link>
+          <Link to="/product/shirts_boy" className="product">
+            <img src={ShirtsBoyImg} alt="Shirts" />
+            <h3>Shirts</h3>
+          </Link>
+          <Link to="/product/accessories_boy" className="product">
+            <img src={AccessoriesBoyImg} alt="Accessories" />
+            <h3>Accessories</h3>
+          </Link>
         </section>
       </main>
-
-      <footer className="footer">
-        <p>&copy; 2024 KiddoChic. All rights reserved.</p>
-      </footer>
     </div>
   );
 };
