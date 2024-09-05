@@ -8,10 +8,10 @@ import './Home.css'; // Custom CSS for the HomePage
 
 const HomePage = () => {
   return (
-    <div className="homepage">
+    <div className="homepage  mx-auto justify-center py-8">
       {/* Hero Section */}
-      <section className="hero-section">
-        <div className="slider-content">
+      <section className="hero-section ">
+        <div className="slider-content ">
           <h1 className="slider-heading">Welcome to KiddoChic</h1>
           <p className="slider-subtitle">Discover trendy and comfortable kidswear for every occasion.</p>
         </div>

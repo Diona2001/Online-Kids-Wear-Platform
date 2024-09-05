@@ -1,27 +1,32 @@
-const express = require('express')
-// const cors = require('cors')
-// const cookieParser = require('cookie-parser')
-require('dotenv').config()
-const connectDB = require('./config/db')
-// const router = require('./routes')
+require('dotenv').config();
+const express = require('express');
+const cors = require('cors');
+const bodyParser = require('body-parser');
+const connectDB = require('./config/db'); // Make sure this path is correct
+const userRoutes = require('./routes/userRoutes'); // Make sure this path is correct
 
+const app = express();
 
-const app = express()
-// app.use(cors({
-//     origin : process.env.FRONTEND_URL,
-//     credentials : true
-// }))
-app.use(express.json())
-// app.use(cookieParser())
+// Connect to MongoDB
+connectDB();
 
-// app.use("/api",router)
+// Middlewares
+app.use(cors());
+app.use(bodyParser.json());
 
-const PORT = 8080 || process.env.PORT
+// Routes
+app.use('/api/users', userRoutes); // This mounts the routes under /api/users
 
+// Error handling middleware
+app.use((err, req, res, next) => {
+  console.error('Error stack:', err.stack);
+  console.error('Error message:', err.message);
+  res.status(500).json({ message: 'Server error', details: err.message });
+});
 
-connectDB().then(()=>{
-    app.listen(PORT,()=>{
-        console.log("connnect to DB")
-        console.log("Server is running "+PORT)
-    })
-})
+const PORT = process.env.PORT || 3000; // Ensure this matches your frontend fetch URL
+
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
+

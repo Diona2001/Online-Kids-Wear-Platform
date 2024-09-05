@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import './Login.css';
-import loginImage from '../assets/kids.png';
+import loginImage from '../assets/kids.png'; // Ensure the path to the image is correct
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -9,6 +9,7 @@ const Login = () => {
   const [errors, setErrors] = useState({ email: '', password: '' });
   const navigate = useNavigate();
 
+  // Validation function to check form inputs
   const validateForm = () => {
     let valid = true;
     let errors = {};
@@ -33,30 +34,35 @@ const Login = () => {
     return valid;
   };
 
+  // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (validateForm()) {
       try {
-        const response = await fetch('/api/login', {
+        const response = await fetch('http://localhost:3000/api/users/login', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },
           body: JSON.stringify({ email, password }),
         });
+        console.log("login details",email,password)
+
+        if (!response.ok) {
+          // Handle non-2xx HTTP responses
+          const errorData = await response.json();
+          throw new Error(errorData.message || 'Login failed');
+        }
 
         const data = await response.json();
 
-        if (response.ok) {
-          navigate('/'); // Redirect on successful login
-        } else {
-          console.error('Login failed:', data); // Log the error for debugging
-          alert(data.message || 'Login failed. Please check your credentials.');
-        }
+        // Store the token in localStorage
+        localStorage.setItem('token', data.token);
+        navigate('/landingpage'); // Redirect to the landing page on successful login
       } catch (error) {
         console.error('Error during login:', error);
-        alert('An error occurred. Please try again.');
+        alert(error.message || 'An error occurred. Please try again.');
       }
     }
   };
@@ -109,3 +115,4 @@ const Login = () => {
 };
 
 export default Login;
+

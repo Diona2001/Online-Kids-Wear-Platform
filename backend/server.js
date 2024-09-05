@@ -1,26 +1,32 @@
+require('dotenv').config();
 const express = require('express');
-const mongoose = require('mongoose');
-const bodyParser = require('body-parser');
-const userRoutes = require('./routes/userRoutes');
 const cors = require('cors');
+const bodyParser = require('body-parser');
+const connectDB = require('./config/db'); // Make sure this path is correct
+const userRoutes = require('./routes/userRoutes'); // Make sure this path is correct
 
 const app = express();
 
 // Connect to MongoDB
-mongoose.connect('mongodb+srv://dionatens2025:diona_01@kidswear.biltx3q.mongodb.net/kidswear?retryWrites=true&w=majority&appName=kidswear', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-})
-.then(() => console.log('MongoDB connected'))
-.catch(err => console.error('MongoDB connection error:', err));
+connectDB();
 
-// Middleware
+// Middlewares
+app.use(cors());
 app.use(bodyParser.json());
-app.use(cors()); // Enable CORS
-app.use('/api/users', userRoutes);
 
-app.listen(3000, () => {
-  console.log('Server running on port 3000');
+// Routes
+app.use('/api/users', userRoutes); // This mounts the routes under /api/users
+
+// Error handling middleware
+app.use((err, req, res, next) => {
+  console.error('Error stack:', err.stack);
+  console.error('Error message:', err.message);
+  res.status(500).json({ message: 'Server error', details: err.message });
 });
 
+const PORT = process.env.PORT || 3000; // Ensure this matches your frontend fetch URL
+
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
 

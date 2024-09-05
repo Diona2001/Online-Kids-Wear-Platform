@@ -2,12 +2,17 @@
 
 .homepage {
   font-family: 'Arial', sans-serif;
+  position: relative;
+  top: 30px;
 }
 
 .hero-section {
   position: relative;
-  height: 400px; /* Adjust height as needed */
-  overflow: hidden;
+  height: 900px; /* Adjust height as needed */
+  /* overflow: hidden; */
+  /* display: flex;
+  flex-direction: column; */
+  top:450px;
   background-image: url('../assets/welcome.png'); /* Apply background image */
   background-size: cover; /* Ensure the image covers the entire container */
   background-position: center; /* Center the image */
@@ -39,6 +44,8 @@
 
 .category-section {
   background-color: #f4f4f4;
+  position: relative;
+  top:200px;
 }
 
 .categories-container {
