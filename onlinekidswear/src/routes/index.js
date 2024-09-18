@@ -1,10 +1,11 @@
+/* eslint-disable react/jsx-no-undef */
 import { createBrowserRouter } from 'react-router-dom';
 import App from '../App';
 import Home from '../pages/Home';
 import Login from '../pages/Login';
 import SignUp from '../pages/SignUp';
 import LandingPage from '../pages/LandingPage';
-
+import GirlDress from '../pages/GirlDress';
 const router = createBrowserRouter([
     {
         path: "/",
@@ -25,7 +26,12 @@ const router = createBrowserRouter([
             {
                 path: "landingpage",
                 element: <LandingPage /> // Ensure the component name matches the import
+            },
+            {
+                path: "product/dresses",
+                element: <GirlDress />
             }
+        
         ]
     }
 ]);

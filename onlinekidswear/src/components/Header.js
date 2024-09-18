@@ -1,12 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaShoppingCart } from "react-icons/fa";
 import profileImg from '../assets/profile.png'; // Ensure the path is correct
 import logoImg from '../assets/logo.svg'; // Ensure the path is correct
 
+
 const Header = () => {
+  const [showProfileBox, setShowProfileBox] = useState(false);
+
+  const handleMouseEnter = () => {
+    setShowProfileBox(true);
+  };
+
+  const handleMouseLeave = () => {
+    setShowProfileBox(false);
+  };
+
   return (
-    <header className='h-20 shadow-lg bg-blue-600 fixed top-0 left-0 w-full z-50'> {/* Changed bg color */}
+    <header className='h-20 shadow-lg bg-blue-600 fixed top-0 left-0 w-full z-50'>
       <div className='h-full container mx-auto flex items-center px-6 justify-between'>
         
         {/* Left side: Logo and Site Name */}
@@ -19,7 +30,7 @@ const Header = () => {
             />
           </Link>
           <Link to={"/"}>
-            <span className='text-white text-2xl font-bold'>KiddoChic</span> {/* Text color changed */}
+            <span className='text-white text-2xl font-bold'>KiddoChic</span>
           </Link>
         </div>
 
@@ -47,15 +58,27 @@ const Header = () => {
 
         {/* Right side: Cart, Profile, and Login */}
         <div className='flex items-center gap-5'>
-          <Link to="/profile" className='flex items-center'>
+          <div 
+            className='relative flex items-center'
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+          >
             <img 
               src={profileImg} 
               className='w-10 h-10 rounded-full border-2 border-white' 
               alt="User" 
             />
-          </Link>
 
-          <Link to="/cart" className='text-2xl relative text-white'> {/* Cart icon color */}
+            {showProfileBox && (
+              <div className="profile-box">
+                <p><strong>Username:</strong> John Doe</p>
+                <p><strong>Email:</strong> johndoe@example.com</p>
+                <Link to="/profile" className='text-blue-600 hover:underline'>View Profile</Link>
+              </div>
+            )}
+          </div>
+
+          <Link to="/cart" className='text-2xl relative text-white'>
             <FaShoppingCart />
             <div className='text-white w-5 h-5 rounded-full p-1 flex items-center justify-center bg-red-500 absolute -top-2 -right-3'>
               <p className='text-sm'>0</p>

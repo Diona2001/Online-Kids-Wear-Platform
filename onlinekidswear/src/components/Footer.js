@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
-    <footer className="bg-slate-200  py-20">
-      <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 px-4 py-28">
+    <footer className="bg-slate-100  py-20">
+      <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 px-4 py-20">
         
         {/* About Us Section */}
         <div>

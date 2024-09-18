@@ -23,15 +23,26 @@ import EthnicBoyImg from '../assets/ethnic_boy.png';
 import NightsuitsBoyImg from '../assets/nightsuits_boy.png';
 import ShirtsBoyImg from '../assets/shirts_boy.png';
 import AccessoriesBoyImg from '../assets/accessories_boy.png';
-// occasion wear
-import BrithdayImg from '../assets/brithday.png';
+
+// Occasion wear images
+import BirthdayImg from '../assets/brithday.png'; // Check file path
 import TravelImg from '../assets/travel.png';
 import TraditionalImg from '../assets/traditional.png';
-import WeekendImg from '../assets/bweekend.png';
+import WeekendImg from '../assets/bweekend.png'; // Check file path
+
+// Age groups for girls
+import BabyGirlImg from '../assets/girlage1.png';
+import LittleGirlImg from '../assets/littlegirl.png';
+import BigGirlImg from '../assets/biggirl.png';
+
+// Age groups for boys
+import BabyBoyImg from '../assets/babyboy.png';
+import LittleBoyImg from '../assets/littleboy.png';
+import BigBoyImg from '../assets/bigboy.png';
 
 const LandingPage = () => {
   return (
-    <div className="landing-page">
+    <div className="landingpage">
       <header className="header">
         <nav className="nav">
           <Link to="/boys" className="nav-link">Boys</Link>
@@ -41,7 +52,7 @@ const LandingPage = () => {
       </header>
 
       <main className="main">
-        {/* Girls' Wardrobe on the left side */}
+        {/* Girls' Wardrobe Section */}
         <section className="wardrobe girls-wardrobe">
           <h2>Girls' Wardrobe</h2>
           <Link to="/product/dresses" className="product">
@@ -52,11 +63,11 @@ const LandingPage = () => {
             <img src={ShoesImg} alt="Shoes" />
             <h3>Shoes</h3>
           </Link>
-          <Link to="/product/accessories" className="product">
+          <Link to="/product/accessors" className="product">
             <img src={AccessorsImg} alt="Accessories" />
             <h3>Accessories</h3>
           </Link>
-          <Link to="/product/bottoms" className="product">
+          <Link to="/product/bottom1" className="product">
             <img src={Bottom1Img} alt="Bottoms" />
             <h3>Bottoms</h3>
           </Link>
@@ -64,29 +75,29 @@ const LandingPage = () => {
             <img src={EthnicImg} alt="Ethnic Wear" />
             <h3>Ethnic Wear</h3>
           </Link>
-          <Link to="/product/nightsuit" className="product">
-            <img src={NightsuitsGirlImg} alt="Night Suits" />
-            <h3>Night Suits</h3>
+          <Link to="/product/nightsuits" className="product">
+            <img src={NightsuitsGirlImg} alt="Nightsuits" />
+            <h3>Nightsuits</h3>
           </Link>
           <Link to="/product/partywear" className="product">
-            <img src={PartywearGirlImg} alt="Partywear" />
-            <h3>Partywear</h3>
+            <img src={PartywearGirlImg} alt="Party Wear" />
+            <h3>Party Wear</h3>
           </Link>
           <Link to="/product/sets" className="product">
-            <img src={SetsGirlImg} alt="Full-Length Sets" />
-            <h3>Full-Length Sets</h3>
+            <img src={SetsGirlImg} alt="Sets" />
+            <h3>Sets</h3>
           </Link>
           <Link to="/product/shorts" className="product">
-            <img src={ShortsGirlImg} alt="Shorts & Skirt Sets" />
-            <h3>Shorts & Skirt Sets</h3>
+            <img src={ShortsGirlImg} alt="Shorts" />
+            <h3>Shorts</h3>
           </Link>
         </section>
 
-        {/* Occasions Wear in the center */}
+        {/* Occasions Wear Section */}
         <section className="wardrobe occasions-wear">
           <h2>Occasions Wear</h2>
           <Link to="/product/birthday" className="product">
-            <img src={BrithdayImg} alt="Birthday Wear" />
+            <img src={BirthdayImg} alt="Birthday Wear" />
             <h3>Birthday Wear</h3>
           </Link>
           <Link to="/product/travel" className="product">
@@ -103,7 +114,24 @@ const LandingPage = () => {
           </Link>
         </section>
 
-        {/* Boys' Wardrobe on the right side */}
+          {/* Age Groups for Girls */}
+          <section className="age-group girls-age-group">
+             <h2>Age Groups for Girls</h2>
+          <Link to="/age-group/baby-girl" className="product">
+            <img src={BabyGirlImg} alt="Baby Girl" />
+            <h3>Baby Girl</h3>
+          </Link>
+          <Link to="/age-group/little-girl" className="product">
+            <img src={LittleGirlImg} alt="Little Girl" />
+            <h3>Little Girl</h3>
+          </Link>
+          <Link to="/age-group/big-girl" className="product">
+            <img src={BigGirlImg} alt="Big Girl" />
+            <h3>Big Girl</h3>
+          </Link>
+        </section>
+
+        {/* Boys' Wardrobe Section */}
         <section className="wardrobe boys-wardrobe">
           <h2>Boys' Wardrobe</h2>
           <Link to="/product/sets_boy" className="product">
@@ -111,7 +139,7 @@ const LandingPage = () => {
             <h3>Outfit Sets</h3>
           </Link>
           <Link to="/product/partywear_boy" className="product">
-            <img src={PartywearBoyImg} alt="Partywear" />
+            <img src={PartywearBoyImg} alt="Party Wear" />
             <h3>Party Wear</h3>
           </Link>
           <Link to="/product/shoes_boy" className="product">
@@ -131,8 +159,8 @@ const LandingPage = () => {
             <h3>Ethnic Wear</h3>
           </Link>
           <Link to="/product/nightsuits_boy" className="product">
-            <img src={NightsuitsBoyImg} alt="Night Suits" />
-            <h3>Night Suits</h3>
+            <img src={NightsuitsBoyImg} alt="Nightsuits" />
+            <h3>Nightsuits</h3>
           </Link>
           <Link to="/product/shirts_boy" className="product">
             <img src={ShirtsBoyImg} alt="Shirts" />
@@ -141,6 +169,23 @@ const LandingPage = () => {
           <Link to="/product/accessories_boy" className="product">
             <img src={AccessoriesBoyImg} alt="Accessories" />
             <h3>Accessories</h3>
+          </Link>
+        </section>
+
+        {/* Age Groups for Boys */}
+        <section className="age-group boys-age-group">
+          <h2>Age Groups for Boys</h2>
+          <Link to="/age-group/baby-boy" className="product">
+            <img src={BabyBoyImg} alt="Baby Boy" />
+            <h3>Baby Boy</h3>
+          </Link>
+          <Link to="/age-group/little-boy" className="product">
+            <img src={LittleBoyImg} alt="Little Boy" />
+            <h3>Little Boy</h3>
+          </Link>
+          <Link to="/age-group/big-boy" className="product">
+            <img src={BigBoyImg} alt="Big Boy" />
+            <h3>Big Boy</h3>
           </Link>
         </section>
       </main>
