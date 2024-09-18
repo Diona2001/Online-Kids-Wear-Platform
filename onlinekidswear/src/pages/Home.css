@@ -8,11 +8,11 @@
 
 .hero-section {
   position: relative;
-  height: 900px; /* Adjust height as needed */
+  height: 880px; /* Adjust height as needed */
   /* overflow: hidden; */
   /* display: flex;
   flex-direction: column; */
-  top:450px;
+  top:200px;
   background-image: url('../assets/welcome.png'); /* Apply background image */
   background-size: cover; /* Ensure the image covers the entire container */
   background-position: center; /* Center the image */
