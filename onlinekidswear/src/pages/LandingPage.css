@@ -7,7 +7,7 @@ body, html, h1, h2, h3, p, ul, li {
 
 /* Basic styling */
 html, body {
-  height: 190%;
+  height: 200%;
 }
 
 body {
@@ -249,7 +249,7 @@ h2 {
 }
 
 /* Responsive design */
-@media (max-width: 790px) {
+@media (max-width: 800px) {
   .main {
     flex-direction: column; /* Stacks main content vertically on smaller screens */
   }

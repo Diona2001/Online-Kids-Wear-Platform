@@ -16,15 +16,15 @@ import GirlDresses9Img from '../assets/dress9.png';
 
 // Product data for dresses
 const dresses = [
-  { id: 'dress1', img: GirlDresses1Img, price: 25, sizes: ['S', 'M', 'L'], name: 'Dress 1', style: 'Casual', neckline: 'Round', color: 'Red', ageGroup: '0-6 months', occasion: 'Party' },
-  { id: 'dress2', img: GirlDresses2Img, price: 30, sizes: ['S', 'M', 'L'], name: 'Dress 2', style: 'Party', neckline: 'V-Neck', color: 'Blue', ageGroup: '1-2 years', occasion: 'Casual' },
-  { id: 'dress3', img: GirlDresses3Img, price: 35, sizes: ['S', 'M', 'L'], name: 'Dress 3', style: 'Ethnic', neckline: 'Square', color: 'Pink', ageGroup: '3-4 years', occasion: 'Ethnic' },
-  { id: 'dress4', img: GirlDresses4Img, price: 40, sizes: ['S', 'M', 'L'], name: 'Dress 4', style: 'Casual', neckline: 'Round', color: 'Yellow', ageGroup: '5-6 years', occasion: 'Party' },
-  { id: 'dress5', img: GirlDresses5Img, price: 20, sizes: ['S', 'M', 'L'], name: 'Dress 5', style: 'Party', neckline: 'Boat', color: 'Red', ageGroup: '0-6 months', occasion: 'Casual' },
-  { id: 'dress6', img: GirlDresses6Img, price: 22, sizes: ['S', 'M', 'L'], name: 'Dress 6', style: 'Ethnic', neckline: 'V-Neck', color: 'Blue', ageGroup: '1-2 years', occasion: 'Ethnic' },
-  { id: 'dress7', img: GirlDresses7Img, price: 28, sizes: ['S', 'M', 'L'], name: 'Dress 7', style: 'Casual', neckline: 'Square', color: 'Pink', ageGroup: '3-4 years', occasion: 'Casual' },
-  { id: 'dress8', img: GirlDresses8Img, price: 32, sizes: ['S', 'M', 'L'], name: 'Dress 8', style: 'Party', neckline: 'Boat', color: 'Yellow', ageGroup: '5-6 years', occasion: 'Party' },
-  { id: 'dress9', img: GirlDresses9Img, price: 27, sizes: ['S', 'M', 'L'], name: 'Dress 9', style: 'Ethnic', neckline: 'Round', color: 'Green', ageGroup: '0-6 months', occasion: 'Ethnic' }
+  { id: 'dress1', img: GirlDresses1Img, price: 2500, sizes: ['S', 'M', 'L'], name: 'Dress 1', style: 'Casual', neckline: 'Round', color: 'Red', ageGroup: '0-6 months', occasion: 'Party' },
+  { id: 'dress2', img: GirlDresses2Img, price: 3000, sizes: ['S', 'M', 'L'], name: 'Dress 2', style: 'Party', neckline: 'V-Neck', color: 'Blue', ageGroup: '1-2 years', occasion: 'Casual' },
+  { id: 'dress3', img: GirlDresses3Img, price: 1000, sizes: ['S', 'M', 'L'], name: 'Dress 3', style: 'Ethnic', neckline: 'Square', color: 'Pink', ageGroup: '3-4 years', occasion: 'Ethnic' },
+  { id: 'dress4', img: GirlDresses4Img, price: 600, sizes: ['S', 'M', 'L'], name: 'Dress 4', style: 'Casual', neckline: 'Round', color: 'Yellow', ageGroup: '5-6 years', occasion: 'Party' },
+  { id: 'dress5', img: GirlDresses5Img, price: 2000, sizes: ['S', 'M', 'L'], name: 'Dress 5', style: 'Party', neckline: 'Boat', color: 'Red', ageGroup: '0-6 months', occasion: 'Casual' },
+  { id: 'dress6', img: GirlDresses6Img, price: 500, sizes: ['S', 'M', 'L'], name: 'Dress 6', style: 'Ethnic', neckline: 'V-Neck', color: 'Blue', ageGroup: '1-2 years', occasion: 'Ethnic' },
+  { id: 'dress7', img: GirlDresses7Img, price: 500, sizes: ['S', 'M', 'L'], name: 'Dress 7', style: 'Casual', neckline: 'Square', color: 'Pink', ageGroup: '3-4 years', occasion: 'Casual' },
+  { id: 'dress8', img: GirlDresses8Img, price: 3200, sizes: ['S', 'M', 'L'], name: 'Dress 8', style: 'Party', neckline: 'Boat', color: 'Yellow', ageGroup: '5-6 years', occasion: 'Party' },
+  { id: 'dress9', img: GirlDresses9Img, price: 1500, sizes: ['S', 'M', 'L'], name: 'Dress 9', style: 'Ethnic', neckline: 'Round', color: 'Green', ageGroup: '0-6 months', occasion: 'Ethnic' }
 ];
 
 function GirlDress() {

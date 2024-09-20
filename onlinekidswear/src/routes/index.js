@@ -6,6 +6,7 @@ import Login from '../pages/Login';
 import SignUp from '../pages/SignUp';
 import LandingPage from '../pages/LandingPage';
 import GirlDress from '../pages/GirlDress';
+import ProductDetails from '../pages/ProductDetails';
 const router = createBrowserRouter([
     {
         path: "/",
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
             {
                 path: "product/dresses",
                 element: <GirlDress />
+            },
+            {
+                path: "product/dress1",
+                element: <ProductDetails />
             }
         
         ]

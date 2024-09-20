@@ -3,12 +3,15 @@
 .homepage {
   font-family: 'Arial', sans-serif;
   position: relative;
-  top: 30px;
+  top: 10px;
+}
+html,body{
+  height: 5%;
 }
 
 .hero-section {
   position: relative;
-  height: 880px; /* Adjust height as needed */
+  height: 800px; /* Adjust height as needed */
   /* overflow: hidden; */
   /* display: flex;
   flex-direction: column; */

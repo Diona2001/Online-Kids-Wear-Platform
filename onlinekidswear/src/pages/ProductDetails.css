@@ -1,0 +1,154 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Ensure the body and html fill the screen */
+html, body {
+  height: 230%; /* Ensures full-screen height */
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #fafafa;
+  color: #333;
+  overflow-x: hidden; /* Prevents horizontal scroll */
+}
+
+/* Product container layout */
+.product-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  min-height: 100vh; /* Ensures the product container fills the viewport height */
+}
+
+/* Product gallery styling */
+.product-gallery {
+  flex: 1;
+  position: relative;
+  max-width: 400px;
+  margin-right: 20px;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.main-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.main-image:hover {
+  transform: scale(1.05);
+}
+
+/* Navigation button styling */
+.nav-button {
+  position: absolute;
+  top: 50%;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  border: none;
+  padding: 12px;
+  cursor: pointer;
+  z-index: 10;
+  font-size: 28px;
+  line-height: 0;
+  border-radius: 50%;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.nav-button:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+  transform: scale(1.1);
+}
+
+.nav-button.prev {
+  left: 15px;
+}
+
+.nav-button.next {
+  right: 15px;
+}
+
+/* Product details styling */
+.product-details {
+  flex: 2;
+  padding: 30px;
+  background: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  min-height: 100vh; /* Ensures this section also fills the viewport height */
+}
+
+.product-details h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.price, .discount-price, .save {
+  font-size: 18px;
+  margin: 10px 0;
+  color: #555;
+}
+
+/* Size and button styling */
+.product-size select {
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+  margin-top: 5px;
+}
+
+.size-chart {
+  display: inline-block;
+  margin-top: 10px;
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.size-chart:hover {
+  text-decoration: underline;
+}
+
+.product-buttons {
+  margin-top: 20px;
+}
+
+.btn-add-cart, .btn-buy-now {
+  background-color: #e31e91;
+  border: none;
+  color: white;
+  padding: 12px 24px;
+  margin: 5px;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 16px;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.btn-add-cart:hover, .btn-buy-now:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+.delivery-info {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #777;
+}
+
+.delivery-info p {
+  margin: 5px 0;
+}
