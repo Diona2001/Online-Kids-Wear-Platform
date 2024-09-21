@@ -55,4 +55,15 @@ router.post('/login', async (req, res) => {
   }
 });
 
+// Logout Route
+router.post('/logout', (req, res) => {
+  try {
+    // For token-based auth, just clear the token on the client-side
+    res.status(200).json({ message: 'Logged out successfully' });
+  } catch (error) {
+    console.error('Logout error:', error);
+    res.status(500).json({ message: 'Server error during logout', details: error.message });
+  }
+});
+
 module.exports = router;
