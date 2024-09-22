@@ -7,6 +7,7 @@ import SignUp from '../pages/SignUp';
 import LandingPage from '../pages/LandingPage';
 import GirlDress from '../pages/GirlDress';
 import ProductDetails from '../pages/ProductDetails';
+import ForgotPassword from '../pages/ForgotPassword';
 const router = createBrowserRouter([
     {
         path: "/",
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
             {
                 path: "login",
                 element: <Login />
+            },
+            {
+                path:"forgotPassword",
+                element:<ForgotPassword />
             },
             {
                 path: "sign-up",

@@ -96,6 +96,7 @@ const Login = () => {
             {errors.password && <span className="error-message">{errors.password}</span>}
           </div>
           <button type="submit" className="continue-button">Login</button>
+          <Link to="/forgotPassword">Forgot Password</Link>
           <button type="button" className="signin-google">
             <img
               src="https://developers.google.com/identity/images/g-logo.png"
