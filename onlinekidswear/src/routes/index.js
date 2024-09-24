@@ -8,6 +8,7 @@ import LandingPage from '../pages/LandingPage';
 import GirlDress from '../pages/GirlDress';
 import ProductDetails from '../pages/ProductDetails';
 import ForgotPassword from '../pages/ForgotPassword';
+import AdminDashboard from '../components/AdminDashboard';
 const router = createBrowserRouter([
     {
         path: "/",
@@ -21,6 +22,7 @@ const router = createBrowserRouter([
                 path: "login",
                 element: <Login />
             },
+
             {
                 path:"forgotPassword",
                 element:<ForgotPassword />
@@ -32,6 +34,10 @@ const router = createBrowserRouter([
             {
                 path: "landingpage",
                 element: <LandingPage /> // Ensure the component name matches the import
+            },
+            {
+                path: "admin-dashboard",
+                element: <AdminDashboard /> // Ensure the component name matches the import
             },
             {
                 path: "product/dresses",

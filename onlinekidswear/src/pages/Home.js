@@ -8,7 +8,7 @@ import './Home.css'; // Custom CSS for the HomePage
 
 const HomePage = () => {
   return (
-    <div className="homepage  mx-auto justify-center py-8">
+    <div className="homepage  mx-auto justify-center py-5">
       {/* Hero Section */}
       <section className="hero-section ">
         <div className="slider-content ">

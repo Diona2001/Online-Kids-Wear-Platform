@@ -7,6 +7,7 @@ const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errors, setErrors] = useState({ email: '', password: '' });
+  const [isAdminLogin, setIsAdminLogin] = useState(false);
   const navigate = useNavigate();
 
   // Validation function to check form inputs
@@ -40,14 +41,17 @@ const Login = () => {
 
     if (validateForm()) {
       try {
-        const response = await fetch('http://localhost:3000/api/users/login', {
+        const url = isAdminLogin ? 'http://localhost:3000/api/admin/login' : 'http://localhost:3000/api/users/login'; // Toggle between admin and user URL
+
+        const response = await fetch(url, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },
           body: JSON.stringify({ email, password }),
         });
-        console.log("login details",email,password)
+        console.log("login details",email,password,isAdminLogin ? 'Admin' : 'User');
+      
 
         if (!response.ok) {
           // Handle non-2xx HTTP responses
@@ -59,7 +63,12 @@ const Login = () => {
 
         // Store the token in localStorage
         localStorage.setItem('token', data.token);
-        navigate('/landingpage'); // Redirect to the landing page on successful login
+        
+        if (isAdminLogin) {
+          navigate('/admin-dashboard');
+        } else {
+          navigate('/landingpage');
+        }
       } catch (error) {
         console.error('Error during login:', error);
         alert(error.message || 'An error occurred. Please try again.');
@@ -73,7 +82,7 @@ const Login = () => {
         <img src={loginImage} alt="Login Background" className="login-image" />
       </div>
       <div className="form-container">
-        <h2>LOGIN</h2>
+      <h2>{isAdminLogin ? 'ADMIN LOGIN' : 'USER LOGIN'}</h2>
         <form onSubmit={handleSubmit}>
           <div className="input-container">
             <label>Email</label>
@@ -95,8 +104,25 @@ const Login = () => {
             />
             {errors.password && <span className="error-message">{errors.password}</span>}
           </div>
-          <button type="submit" className="continue-button">Login</button>
-          <Link to="/forgotPassword">Forgot Password</Link>
+
+           {/* Toggle Button for User/Admin Login */}
+          <div className="toggle-container">
+            <label>
+              <input
+                type="checkbox"
+                checked={isAdminLogin}
+                onChange={() => setIsAdminLogin(!isAdminLogin)}
+              />
+              Switch to {isAdminLogin ? 'User' : 'Admin'} Login
+            </label>
+          </div>
+
+          <button type="submit" className="continue-button">
+            {isAdminLogin ? 'Login as Admin' : 'Login as User'}
+          </button>
+
+          {!isAdminLogin && <Link to="/forgotPassword">Forgot Password?</Link>}
+
           <button type="button" className="signin-google">
             <img
               src="https://developers.google.com/identity/images/g-logo.png"
@@ -116,4 +142,3 @@ const Login = () => {
 };
 
 export default Login;
-

@@ -1,0 +1,123 @@
+/* src/components/AdminDashboard.css */
+
+/* General styling for the dashboard */
+.admin-dashboard {
+    padding: 20px;
+    background-color: #f5f5f5;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .admin-dashboard h1 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  /* Styling for the table */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+  
+  table th, table td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    text-align: center;
+  }
+  
+  table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+    color: #555;
+  }
+  
+  table td {
+    background-color: #fff;
+  }
+  
+  table tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  /* Buttons for Add/Edit/Delete */
+  .add-button,
+  .edit-button,
+  .delete-button {
+    padding: 8px 15px;
+    margin: 5px;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .add-button {
+    background-color: #28a745;
+    color: white;
+    border-radius: 4px;
+  }
+  
+  .add-button:hover {
+    background-color: #218838;
+  }
+  
+  .edit-button {
+    background-color: #007bff;
+    color: white;
+    border-radius: 4px;
+  }
+  
+  .edit-button:hover {
+    background-color: #0069d9;
+  }
+  
+  .delete-button {
+    background-color: #dc3545;
+    color: white;
+    border-radius: 4px;
+  }
+  
+  .delete-button:hover {
+    background-color: #c82333;
+  }
+  
+  /* Form styling for adding or editing a product */
+  .product-form {
+    background-color: white;
+    padding: 20px;
+    margin-top: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  .product-form label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 8px;
+  }
+  
+  .product-form input,
+  .product-form select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  .product-form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .product-form button:hover {
+    background-color: #218838;
+  }
+  

@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { FaShoppingCart } from 'react-icons/fa';
 import profileImg from '../assets/profile.png'; // Ensure the path is correct
 import logoImg from '../assets/logo.svg'; // Ensure the path is correct
-
+import { IoSearch } from "react-icons/io5";
 const Header = () => {
   const [showProfileBox, setShowProfileBox] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false); // State to track login status
@@ -47,7 +47,7 @@ const Header = () => {
   };
 
   return (
-    <header className='h-20 shadow-lg bg-blue-600 fixed top-0 left-0 w-full z-50'>
+    <header className='h-16 shadow-lg bg-blue-600 fixed top-0 left-0 w-full z-50'>
       <div className='h-full container mx-auto flex items-center px-6 justify-between'>
         
         {/* Left side: Logo and Site Name */}
@@ -64,27 +64,12 @@ const Header = () => {
           </Link>
         </div>
 
-        {/* Center: Navigation Links */}
-        <nav className='flex items-center gap-6'>
-          <Link to="/" className='text-white text-lg hover:text-gray-300 transition duration-200'>
-            Home
-          </Link>
-          <Link to="/products" className='text-white text-lg hover:text-gray-300 transition duration-200'>
-            Products
-          </Link>
-          <Link to="/brands" className='text-white text-lg hover:text-gray-300 transition duration-200'>
-            Our Brands
-          </Link>
-          <Link to="/category" className='text-white text-lg hover:text-gray-300 transition duration-200'>
-            Category
-          </Link>
-          <Link to="/about" className='text-white text-lg hover:text-gray-300 transition duration-200'>
-            About Us
-          </Link>
-          <Link to="/contact" className='text-white text-lg hover:text-gray-300 transition duration-200'>
-            Contact Us
-          </Link>
-        </nav>
+        <div className='hidden lg:flex items-center w-full justify-between max-w-sm border rounded-full focus-within:shadow pl-2'>
+          <input type='text' placeholder='search product here...' className='w-full outline-none' />
+          <div className='text-lg min-w-[50px] h-8 bg-red-600 flex items-center justify-center rounded-r-full text-white'>
+            <IoSearch />
+          </div>
+        </div>
 
         {/* Right side: Cart, Profile, and Login/Logout */}
         <div className='flex items-center gap-5'>
@@ -101,8 +86,7 @@ const Header = () => {
 
             {showProfileBox && (
               <div className="profile-box">
-                <p><strong>Username:</strong> John Doe</p>
-                <p><strong>Email:</strong> johndoe@example.com</p>
+  
                 <Link to="/profile" className='text-blue-600 hover:underline'>View Profile</Link>
                 {/* Show Logout button if logged in */}
                 {isLoggedIn && (
