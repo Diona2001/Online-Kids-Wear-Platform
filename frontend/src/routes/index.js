@@ -4,12 +4,11 @@ import App from '../App';
 import Home from '../pages/Home';
 import Login from '../pages/Login';
 import SignUp from '../pages/SignUp';
-import LandingPage from '../pages/LandingPage';
-import GirlDress from '../pages/GirlDress';
+import AdminDashboard from '../pages/AdminDashboard';
+import Products from '../components/Products';
+import SearchProduct from '../pages/SearchProduct';
 import ProductDetails from '../pages/ProductDetails';
-import ForgotPassword from '../pages/ForgotPassword';
-import AdminDashboard from '../components/AdminDashboard';
-import Contact from '../pages/Contact';
+import Cart from '../components/Cart';
 const router = createBrowserRouter([
     {
         path: "/",
@@ -20,42 +19,35 @@ const router = createBrowserRouter([
                 element: <Home />
             },
             {
-                path: "login",
-                element: <Login />
-            },
-
-            {
-                path:"forgotPassword",
-                element:<ForgotPassword />
+                path:"login",
+                element:<Login />
             },
             {
-                path: "sign-up",
-                element: <SignUp /> // Ensure the component name matches the import
+                path:"signup",
+                element:<SignUp />
             },
             {
-                path: "landingpage",
-                element: <LandingPage /> // Ensure the component name matches the import
+                path:"admin-dashboard",
+                element:<AdminDashboard />
             },
             {
-                path: "admin-dashboard",
-                element: <AdminDashboard /> // Ensure the component name matches the import
+                path: "products/:category/:subcategory",
+                element: <Products />
             },
             {
-                path: "product/dresses",
-                element: <GirlDress />
+                path: "search",
+                element: <SearchProduct />
             },
             {
-                path: "product/dress1",
-                element: <ProductDetails />
+                path: "products/:id",
+                element : <ProductDetails />
             },
             {
-                path:"contact",
-                element: <Contact />
-            
-            }
-        
+                path: "cart",
+                element: <Cart /> // Route for CartPage
+              }
         ]
     }
-]);
+])
 
 export default router;
