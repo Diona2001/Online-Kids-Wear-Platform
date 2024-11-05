@@ -1,32 +1,37 @@
-require('dotenv').config();
-const express = require('express');
-const cors = require('cors');
-const bodyParser = require('body-parser');
-const connectDB = require('./config/db'); // Make sure this path is correct
-const userRoutes = require('./routes/userRoutes'); // Make sure this path is correct
-const adminRoutes = require('./routes/adminRoutes');
-const app = express();
+const  express = require('express')
+const cors = require ('cors')
+const cookieParser = require('cookie-parser')
+require('dotenv').config()
+const connectDB = require('./config/db')
+const router = require('./routes')
+const categoryRoutes = require('./routes/categoryRoutes'); // Ensure the correct path
+const productRoutes = require('./routes/productRoutes'); // Adjust path if needed
+const cartRoutes = require('./routes/cartRoutes');
 
-// Connect to MongoDB
-connectDB();
+const app = express()
+// Define the frontend origin
+const PORT = process.env.PORT || 8080;
 
-// Middlewares
-app.use(cors());
-app.use(bodyParser.json());
-app.use(express.json()); 
-// Routes
-app.use('/api/users', userRoutes); // This mounts the routes under /api/users
-app.use('/api/admin', adminRoutes);
-// Error handling middleware
-app.use((err, req, res, next) => {
-  console.error('Error stack:', err.stack);
-  console.error('Error message:', err.message);
-  res.status(500).json({ message: 'Server error', details: err.message });
-});
+// CORS Configuration
+app.use(cors({
+    origin: process.env.FRONTEND_URL || 'http://localhost:3000',
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    credentials: true, // Allow credentials (cookies, authorization headers, etc.)
+}));
+app.use(express.json());
+app.use(cookieParser());
+app.use("/api",router);
+app.use("/api/categories", categoryRoutes); // Mount the categories routes
+app.use('/api/products', productRoutes);
+app.use('/api/cart', cartRoutes);
 
-const PORT = process.env.PORT || 3000; // Ensure this matches your frontend fetch URL
 
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+
+connectDB().then(()=>{
+    app.listen(PORT,()=>{
+      console.log("Connected to DB");
+      console.log(`Server is running on port ${PORT}`);
+    })
+
+})
 
