@@ -32,7 +32,7 @@ const Header = () => {
       setIsLoggedIn(false); // Update state to show login button
 
       // Send a request to the logout endpoint (if needed)
-      await fetch('/api/auth/logout', {
+      await fetch('http://localhost:3001/api/auth/logout', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -48,7 +48,7 @@ const Header = () => {
 
   return (
     <header className='h-16 shadow-lg bg-blue-600 fixed top-0 left-0 w-full z-50'>
-      <div className='h-full container mx-auto flex items-center px-6 justify-between'>
+      <div className='h-full container mx-auto flex items-center px-4 justify-between'>
         
         {/* Left side: Logo and Site Name */}
         <div className='flex items-center gap-4'>
@@ -71,36 +71,8 @@ const Header = () => {
           </div>
         </div>
 
-        {/* Right side: Cart, Profile, and Login/Logout */}
-        <div className='flex items-center gap-5'>
-          <div 
-            className='relative flex items-center'
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-          >
-            <img 
-              src={profileImg} 
-              className='w-10 h-10 rounded-full border-2 border-white' 
-              alt="User" 
-            />
-
-            {showProfileBox && (
-              <div className="profile-box">
-  
-                <Link to="/profile" className='text-blue-600 hover:underline'>View Profile</Link>
-                {/* Show Logout button if logged in */}
-                {isLoggedIn && (
-                  <button 
-                    onClick={handleLogout} 
-                    className="text-red-500 hover:underline mt-2"
-                  >
-                    Logout
-                  </button>
-                )}
-              </div>
-            )}
-          </div>
-
+         {/* Right side: Cart, Profile, and Login/Logout */}
+         <div className='flex items-center gap-5'>
           <Link to="/cart" className='text-2xl relative text-white'>
             <FaShoppingCart />
             <div className='text-white w-5 h-5 rounded-full p-1 flex items-center justify-center bg-red-500 absolute -top-2 -right-3'>
@@ -108,7 +80,42 @@ const Header = () => {
             </div>
           </Link>
 
-          {/* Show Login or Logout button based on login state */}
+          {/* Profile section with hover effect */}
+          <div 
+            className='relative flex items-center'
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+          >
+            <img 
+              src={profileImg} 
+              className='w-10 h-10 rounded-full border-2 border-white cursor-pointer' 
+              alt="User" 
+            />
+
+            {showProfileBox && (
+              <div className="absolute right-0 mt-2 w-48 bg-white shadow-md rounded-lg py-2 px-4">
+                {isLoggedIn ? (
+                  <>
+                    <Link to="/profile" className='text-blue-600 hover:underline block'>
+                      View Profile
+                    </Link>
+                    <button 
+                      onClick={handleLogout} 
+                      className="text-red-500 hover:underline mt-2 block"
+                    >
+                      Logout
+                    </button>
+                  </>
+                ) : (
+                  <Link to="/login" className="text-blue-600 hover:underline">
+                    Login
+                  </Link>
+                )}
+              </div>
+            )}
+          </div>
+
+          {/* Login/Logout button based on authentication */}
           {isLoggedIn ? (
             <button 
               onClick={handleLogout} 

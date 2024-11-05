@@ -69,5 +69,30 @@ const login = async (req, res) => {
     res.status(500).json({ message: 'Server error. Please try again later.' });
   }
 };
+// Logout function
+const logout = async (req, res) => {
+  try {
+    // If you're using cookies to store the token, clear the cookie
+    // res.clearCookie('token');
 
-module.exports = { login, signup };
+    // Since you're using token-based auth stored on the client-side (e.g., localStorage),
+    // you might not need to do anything server-side. However, if you implement token blacklisting,
+    // you can add the token to a blacklist here.
+
+    res.status(200).json({
+      message: 'Logged out successfully',
+      error: false,
+      success: true,
+      data: [],
+    });
+  } catch (err) {
+    console.error('Logout error:', err);
+    res.status(500).json({
+      message: err.message || err,
+      error: true,
+      success: false,
+    });
+  }
+};
+
+module.exports = { signup, login, logout }

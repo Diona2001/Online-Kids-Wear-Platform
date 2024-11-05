@@ -9,7 +9,7 @@ const Footer = () => {
         {/* About Us Section */}
         <div>
           <h2 className="text-lg font-bold mt-4 ">About Us</h2>
-          <p className="text-gray-700">
+          <p className="text-gray-800">
             KiddoChic is dedicated to offering stylish and comfortable clothing for kids. Our mission is to combine fashion with functionality, ensuring that every child looks and feels their best.
           </p>
         </div>

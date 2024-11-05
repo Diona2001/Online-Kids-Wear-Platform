@@ -9,6 +9,7 @@ import GirlDress from '../pages/GirlDress';
 import ProductDetails from '../pages/ProductDetails';
 import ForgotPassword from '../pages/ForgotPassword';
 import AdminDashboard from '../components/AdminDashboard';
+import Contact from '../pages/Contact';
 const router = createBrowserRouter([
     {
         path: "/",
@@ -46,6 +47,11 @@ const router = createBrowserRouter([
             {
                 path: "product/dress1",
                 element: <ProductDetails />
+            },
+            {
+                path:"contact",
+                element: <Contact />
+            
             }
         
         ]

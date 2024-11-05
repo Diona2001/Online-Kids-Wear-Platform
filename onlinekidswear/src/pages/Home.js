@@ -8,7 +8,7 @@ import './Home.css'; // Custom CSS for the HomePage
 
 const HomePage = () => {
   return (
-    <div className="homepage  mx-auto justify-center py-5">
+    <div className="homepage  mx-auto justify-center py-10">
       {/* Hero Section */}
       <section className="hero-section ">
         <div className="slider-content ">
@@ -18,7 +18,7 @@ const HomePage = () => {
       </section>
 
       {/* Shop by Category Section */}
-      <section className="category-section py-20 bg-white">
+      <section className="category-section py-0 bg-white">
         <h2 className="text-4xl font-bold text-center mb-10">Shop by Category</h2>
         <div className="categories-container grid grid-cols-1 md:grid-cols-3 gap-8 px-8">
           <div className="category-item shadow-lg p-6 rounded-lg">

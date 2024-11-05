@@ -1,15 +1,17 @@
-/* SignUp.css */
-
 .signup-container {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #f4f4f4;
+  background-image: url('https://kidsaround.in/images/homes/slider/1711792450.jpg'); /* Using the provided image URL */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #f4f4f4; /* Fallback color */
 }
 
 .form-container {
-  background-color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.75); /* Reduced opacity for more visibility of the background image */
   padding: 30px;
   border-radius: 10px;
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);

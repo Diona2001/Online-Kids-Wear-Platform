@@ -15,53 +15,84 @@ const SignUp = () => {
   const [errors, setErrors] = useState({});
   const navigate = useNavigate();
 
+  const validateField = (name, value) => {
+    let error = '';
+
+    switch (name) {
+      case 'firstName':
+        if (!value.trim()) {
+          error = 'First Name is required';
+        }
+        break;
+      case 'lastName':
+        if (!value.trim()) {
+          error = 'Last Name is required';
+        }
+        break;
+      case 'email':
+        if (!value.trim()) {
+          error = 'Email is required';
+        } else if (!/\S+@\S+\.\S+/.test(value)) {
+          error = 'Email address is invalid';
+        }
+        break;
+      case 'password':
+        if (!value.trim()) {
+          error = 'Password is required';
+        } else if (value.length < 6) {
+          error = 'Password must be at least 6 characters long';
+        }
+        break;
+      case 'confirmPassword':
+        if (value !== formData.password) {
+          error = 'Passwords do not match';
+        }
+        break;
+      case 'phoneNumber':
+        if (!value.trim()) {
+          error = 'Phone Number is required';
+        } else if (!/^[56789]\d{9}$/.test(value)) {
+          error = 'Phone Number must start with 5, 6, 7, 8, or 9 and be 10 digits long';
+        }
+        break;
+      default:
+        break;
+    }
+
+    return error;
+  };
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({
       ...formData,
       [name]: value,
     });
+
+    // Perform live validation
+    const error = validateField(name, value);
+    setErrors({
+      ...errors,
+      [name]: error,
+    });
   };
 
-  const validate = () => {
+  const validateAllFields = () => {
     const newErrors = {};
 
-    if (!formData.firstName.trim()) {
-      newErrors.firstName = 'First Name is required';
-    }
-
-    if (!formData.lastName.trim()) {
-      newErrors.lastName = 'Last Name is required';
-    }
-
-    if (!formData.email.trim()) {
-      newErrors.email = 'Email is required';
-    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      newErrors.email = 'Email address is invalid';
-    }
-
-    if (!formData.password.trim()) {
-      newErrors.password = 'Password is required';
-    } else if (formData.password.length < 6) {
-      newErrors.password = 'Password must be at least 6 characters long';
-    }
-
-    if (formData.password !== formData.confirmPassword) {
-      newErrors.confirmPassword = 'Passwords do not match';
-    }
-
-    if (!formData.phoneNumber.trim()) {
-      newErrors.phoneNumber = 'Phone Number is required';
-    } else if (!/^[56789]\d{9}$/.test(formData.phoneNumber)) {
-      newErrors.phoneNumber = 'Phone Number must start with 5, 6, 7, 8, or 9 and be 10 digits long';
-    }
+    Object.keys(formData).forEach((key) => {
+      const error = validateField(key, formData[key]);
+      if (error) {
+        newErrors[key] = error;
+      }
+    });
 
     return newErrors;
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const validationErrors = validate();
+    const validationErrors = validateAllFields();
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
     } else {
@@ -98,7 +129,6 @@ const SignUp = () => {
       }
     }
   };
-
   return (
     <div className="signup-container">
       <div className="form-container">

@@ -3,7 +3,7 @@ const router = express.Router();
 const User = require('../models/User');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
-
+// const { getCurrentUser } = require('../controllers/userController');
 // Sign-up Route
 router.post('/signup', async (req, res) => {
   const { firstName, lastName, email, password, phoneNumber } = req.body;
@@ -54,6 +54,8 @@ router.post('/login', async (req, res) => {
     res.status(500).json({ message: 'Server error', details: error.message });
   }
 });
+// Route to get current user info
+// router.get('/current', getCurrentUser);
 
 // Logout Route
 router.post('/logout', (req, res) => {

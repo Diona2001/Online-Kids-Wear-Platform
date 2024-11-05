@@ -5,10 +5,10 @@ body, html, h1, h2, h3, p, ul, li {
   box-sizing: border-box;
 }
 
-/* Basic styling */
-html, body {
+/* Basic styling
+html {
   height: 200%;
-}
+} */
 
 body {
   font-family: 'Arial', sans-serif;
